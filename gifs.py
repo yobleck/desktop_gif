@@ -55,7 +55,7 @@ try:
         if(not list_temp):
             list_temp = list(list_master); #reset list if empty
         
-        if(time.perf_counter()-timer > 5): #change to new gif after time elapses
+        if(time.perf_counter()-timer > 300): #change to new gif after time elapses
             timer = time.perf_counter();
             thread.kill(); #merc the thread
             thread.join();
