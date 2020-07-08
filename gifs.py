@@ -12,15 +12,12 @@ def do_thing(filename, width, height):
     win.setFocusPolicy(QtCore.Qt.NoFocus); #does this do anything?
     win.setWindowFlags(QtCore.Qt.WindowStaysOnBottomHint | QtCore.Qt.FramelessWindowHint); #window always in back and no title bar
     win.resize(width, height);
-    win.move(100,100);
+    win.move(100,0);
 
     label = QtWidgets.QLabel(win); #label in window
     display = QtGui.QMovie(os.getcwd() + "/" + filename); #display gif
-    label.setMovie(display);
+    label.setMovie(display); #TODO: speed too fast
     label.resize(width,height);
-    
-    setting = QtCore.QSettings();
-    setting.setValue("key",1);
     
     #actually show everything on screen
     win.show();
@@ -43,7 +40,7 @@ while(True):
     thread.daemon = True;
     thread.start();
     
-    time.sleep(5);
+    time.sleep(60*5);
     thread.kill(); #merc the thread
     thread.join();
     if(not list_temp):
