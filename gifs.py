@@ -67,7 +67,7 @@ try:
                 thread.kill(); #merc the thread
                 thread.join();
                 break;
-
+        time.sleep(.01);
 finally:
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings);
 #"""
